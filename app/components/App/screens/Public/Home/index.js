@@ -7,10 +7,9 @@ const Home = React.createClass({
 		return {
 			features: [
 				"React, Redux",
-				"React/Redux Router",
-				"CSS Modules, CSSNext, PostCSS",
-				"Phoenix API",
-				"Authentication"
+				"React Router",
+				"Redux Simple Router",
+				"CSS Modules, CSSNext, PostCSS"
 			]
 		}
 	},
@@ -18,7 +17,7 @@ const Home = React.createClass({
 		const { features } = this.state;
 		return (
 			<div className='container'>
-				<h1 styleName='h1'>React/Phoenix Starter Template</h1>
+				<h1 styleName='h1'>React Starter Template</h1>
 				<ul className="list-group">
 						{ features.map((feature, i) => 
 							<li key={i} className="list-group-item">{ i + 1}) { feature }</li>
