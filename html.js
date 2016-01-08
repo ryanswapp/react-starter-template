@@ -21,7 +21,7 @@ module.exports = {
 
   prod: function (data) {
     var config = {
-      title: 'Cool Beans'
+      title: '<%= appName %>'
     }
 
     return {
