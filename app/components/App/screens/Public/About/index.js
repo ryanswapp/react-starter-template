@@ -9,7 +9,6 @@ const About = React.createClass({
 				  <h1 styleName='h1'>
 				    What's the deal honey buns?
 			    </h1>
-			    <iframe width="853" height="480" src="https://www.youtube.com/embed/umDBRQ8GfEQ" frameborder="0" allowfullscreen></iframe>
 			</div>
 		)
 	}

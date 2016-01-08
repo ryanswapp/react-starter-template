@@ -32,25 +32,25 @@ const Reducers = {}
 
 // Example: these are simple examples of reducers for users
 //
-// Reducers.users = function users(state=[], action) {
-// 	switch (action.type) {
-//     case 'FETCH_USERS':
-//       var newState = action.users;
-//       return newState;
-//     case 'FAILED_FETCH_USERS':
-//       return state;
-//     case 'ADD_USER':
-//       console.log("Added User!");
-//       var newState = clone(state, true);
-//       newState.push(action.user);
-//       return newState;
-//     case 'LOG_OUT':
-//       var newState = [];
-//       return newState;
-//     default:
-//       return state;
-//   }
-// }
+Reducers.users = function users(state=[], action) {
+	switch (action.type) {
+    case 'FETCH_USERS':
+      var newState = action.users;
+      return newState;
+    // case 'FAILED_FETCH_USERS':
+    //   return state;
+    // case 'ADD_USER':
+    //   console.log("Added User!");
+    //   var newState = clone(state, true);
+    //   newState.push(action.user);
+    //   return newState;
+    // case 'LOG_OUT':
+    //   var newState = [];
+    //   return newState;
+    default:
+      return state;
+  }
+}
 
 // Reducers.currentUser = function currentUser(state=false, action) {
 //   switch (action.type) {

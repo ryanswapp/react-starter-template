@@ -1,15 +1,26 @@
-// Things I still need to do:
-
-// 1) Add uglifier plugin for minification
-
 var path = require('path');
 
 var webpack = require('webpack');
 var cssnext = require('cssnext');
 var cssimport = require('postcss-import');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlPlugin = require('./lib/html-plugin');
+var htmlObj = require('./html.js');
+
+var plugins = [
+  new webpack.HotModuleReplacementPlugin()
+]
 
 var isProd = process.env.NODE_ENV === 'production' ? true : false;
+
+var html = htmlObj.dev;
+if (isProd) {
+  html = htmlObj.prod;
+  plugins.push(new webpack.optimize.UglifyJsPlugin({compress: { warnings: false }}));
+  plugins.push(new ExtractTextPlugin('style.css', {allChunks: true}));
+}
+
+plugins.push(new HtmlPlugin({html: html}));
 
 module.exports = {
   devtool: 'eval',
@@ -31,17 +42,12 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
     cssFilename: 'style.css',
-    publicPath: '/static/'
+    publicPath: '/'
   },
-  plugins: [
-    new ExtractTextPlugin('style.css', {
-      allChunks: true
-    }),
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: plugins,
   module: {
     loaders: [{
       test: /\.js$/,

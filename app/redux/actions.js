@@ -1,5 +1,4 @@
 import axios from 'axios'
-import store from 'redux/store.js'
 // import { Socket } from 'vendor/phoenix.js';
 
 const Actions = {}
@@ -47,32 +46,47 @@ const Actions = {}
 
 // Example: this is an example of fetching users from an API
 //
-// Actions.fetchUsers = function fetchPosts() {
-//   return dispatch => {
-//     axios.get('http://localhost:4000/api/v1/users', {
-//       headers: {'Authorization': localStorage.phoenix_auth_token}
-//     })
-//       .then(function (response) {
-//         if (response.status === 200) {
-//           dispatch({
-//             type: 'FETCH_USERS',
-//             users: response.data.data
-//           });
-//         } else {
-//           dispatch({
-//             type: 'FAILED_FETCH_USERS',
-//             error: response
-//           })
-//         }
-//       })
-//       .catch(function(response) {
-//         dispatch({
-//           type: 'FAILED_FETCH_USERS',
-//           error: response
-//         })
-//       });
-//   }
-// };
+Actions.fetchUsers = function fetchPosts() {
+  // return dispatch => {
+  //   axios.get('http://localhost:4000/api/v1/users', {
+  //     headers: {'Authorization': localStorage.phoenix_auth_token}
+  //   })
+  //     .then(function (response) {
+  //       if (response.status === 200) {
+  //         dispatch({
+  //           type: 'FETCH_USERS',
+  //           users: response.data.data
+  //         });
+  //       } else {
+  //         dispatch({
+  //           type: 'FAILED_FETCH_USERS',
+  //           error: response
+  //         })
+  //       }
+  //     })
+  //     .catch(function(response) {
+  //       dispatch({
+  //         type: 'FAILED_FETCH_USERS',
+  //         error: response
+  //       })
+  //     });
+  // }
+  return {
+  	type: 'FETCH_USERS',
+  	// I'm just stubbing data here because we don't have any yet. You wouldn't
+  	// do this in a real app
+  	users: [
+  		{
+  			name: 'Ryan',
+  			email: 'ryancswapp@gmail.com'
+  		},
+  		{
+  			name: 'Example User',
+  			email: 'user@example.com'
+  		}
+  	]
+  }
+};
 
 // Actions.addUser = function addUser(user) {
 //   return {

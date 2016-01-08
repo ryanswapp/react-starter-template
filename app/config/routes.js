@@ -2,12 +2,12 @@ import React from 'react';
 import { Route, Link, IndexRoute } from 'react-router';
 
 // Components
-import App from 'screens/App';
-import Home from 'screens/App/screens/Public/Home';
-import About from 'screens/App/screens/Public/About';
-import UsersList from 'screens/App/screens/Users/UsersList';
-import UsersNew from 'screens/App/screens/Users/UsersNew';
-import UsersLogin from 'screens/App/screens/Users/UsersLogin';
+import App from 'components/App';
+import Home from 'components/App/screens/Public/Home';
+import About from 'components/App/screens/Public/About';
+import UsersList from 'components/App/screens/Users/UsersList';
+import UsersNew from 'components/App/screens/Users/UsersNew';
+import UsersLogin from 'components/App/screens/Users/UsersLogin';
 
 const routes = (
 	<Route path="/" component={App}>

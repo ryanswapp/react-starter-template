@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 const UsersList = React.createClass({
   componentDidMount () {
 
-    // const { dispatch, socket, currentUser, channels } = this.props;
+    const { dispatch } = this.props;
 
     // if (!localStorage.phoenix_auth_token) {
     //   dispatch(pushState(null, "/"));
@@ -21,19 +21,18 @@ const UsersList = React.createClass({
     //   });
     // }
 
-    // this.props.dispatch(Actions.fetchUsers());
+    dispatch(Actions.fetchUsers());
   },
   render () {
-  	// const { users } = this.props;
-    // {users.map((user, i) => {
-    //    return <li key={i} className='list-group-item'>{user.email}</li> 
-    // })}
+    const { users } = this.props;
     return (
       <div className='container'>
         <h1>Users List</h1>
         <div className='users-list'>
           <ul className='list-group'>
-            <li className='list-group-item'>some@email.com</li>
+            {users.map((user, i) => {
+               return <li key={i} className='list-group-item'>{user.email}</li> 
+            })}
           </ul>
         </div>
       </div>
@@ -41,14 +40,13 @@ const UsersList = React.createClass({
   }
 });
 
-// function mapStateToProps(state) {
-// 	return { 
-//     socket: state.socket,
-//     channels: state.channels,
-//     users: state.users,
-//     currentUser: state.currentUser
-//   }
-// }
+function mapStateToProps(state) {
+	return { 
+    // socket: state.socket,
+    // channels: state.channels,
+    users: state.users,
+    // currentUser: state.currentUser
+  }
+}
 
-// export default connect(mapStateToProps)(UsersList);
-export default UsersList
+export default connect(mapStateToProps)(UsersList);
