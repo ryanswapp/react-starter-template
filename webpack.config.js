@@ -75,8 +75,16 @@ if (!isProd) {
   loaders[0].loaders.unshift('react-hot');
 }
 
+// SETUP DEVTOOL
+var devtool;
+if (isProd) {
+  devtool = 'source-map';
+} else {
+  devtool = 'eval';
+}
+
 module.exports = {
-  devtool: 'eval',
+  devtool: devtool,
   entry: entry,
   stylePath: path.resolve(__dirname, 'app', 'style'),
   postcss: function () {
