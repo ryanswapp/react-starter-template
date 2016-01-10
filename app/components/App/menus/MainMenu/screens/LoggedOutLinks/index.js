@@ -14,6 +14,9 @@ const LoggedOutLinks = React.createClass({
 					<Link to='/about'>About</Link>
 				</li>
 				<li>
+					<Link to='/users'>Users List</Link>
+				</li>
+				<li>
 					<Link to='/signup'>Signup</Link>
 				</li>
 				<li>

@@ -103,7 +103,7 @@ module.exports = {
     filename: '[name].js',
     chunkFilename: '[id].chunk.js',
     cssFilename: 'style.css',
-    publicPath: path.join(__dirname, '/__build__/')
+    publicPath: '/'
   },
   plugins: plugins,
   module: {
