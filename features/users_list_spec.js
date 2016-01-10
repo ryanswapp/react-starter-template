@@ -3,7 +3,7 @@ require('./support/helpers')
 describe("Users Page", function() {
 
   it ("Navigates to the users list page", function() {
-    visit("/#/users");
+    visit("/users");
     var result = "Users List";
     expectToHaveContent(browser, result);
   })

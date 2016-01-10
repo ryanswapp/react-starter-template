@@ -7,7 +7,7 @@ import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
-import createHistory from 'history/lib/createHashHistory'
+import createHistory from 'history/lib/createBrowserHistory'
 import Actions from 'redux/actions.js'
 import Reducers from 'redux/reducers.js'
 
