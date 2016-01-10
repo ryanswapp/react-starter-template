@@ -1,7 +1,7 @@
 import 'style/index.css'
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, IndexRoute } from 'react-router'
+import { Router, Route, IndexRoute, match } from 'react-router'
 import routes from 'config/routes.js'
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
@@ -32,9 +32,7 @@ syncReduxAndRouter(history, store)
 render(
   <Provider store={store}>
     <div>
-      <Router history={history}>
-        { routes }
-      </Router>
+      <Router history={history} routes={routes} />
     </div>
   </Provider>,
   document.getElementById('app')

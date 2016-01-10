@@ -4,7 +4,8 @@
   "description": "A template to get started with a React application",
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "deploy": "NODE_ENV=production webpack -p --config --progress"
   },
   "repository": {
     "type": "git",

@@ -99,10 +99,11 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, 'public'),
-    filename: 'bundle.js',
+    path: path.join(__dirname, '/__build__'),
+    filename: '[name].js',
+    chunkFilename: '[id].chunk.js',
     cssFilename: 'style.css',
-    publicPath: '/'
+    publicPath: path.join(__dirname, '/__build__/')
   },
   plugins: plugins,
   module: {
