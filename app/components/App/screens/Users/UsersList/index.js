@@ -1,5 +1,4 @@
 import React from 'react';
-import { pushState } from 'redux-router';
 import Actions from 'redux/actions.js';
 import { connect } from 'react-redux';
 

@@ -39,14 +39,28 @@ syncReduxAndRouter(history, store)
 
 // store.dispatch(Actions.initiateSocket());
 
-render(
-	<Provider store={store}>
-		<div>
-	  	<Router history={history}>
-	  		{ routes }
-	  	</Router>
-	  	<DevTools />
-  	</div>
-	</Provider>,
-	document.getElementById('app')
-)
+if (process.env.NODE_ENV === 'production') {
+	render(
+		<Provider store={store}>
+			<div>
+		  	<Router history={history}>
+		  		{ routes }
+		  	</Router>
+	  	</div>
+		</Provider>,
+		document.getElementById('app')
+	)
+} else {
+	render(
+		<Provider store={store}>
+			<div>
+		  	<Router history={history}>
+		  		{ routes }
+		  	</Router>
+		  	<DevTools />
+	  	</div>
+		</Provider>,
+		document.getElementById('app')
+	)
+}
+

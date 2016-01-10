@@ -1,6 +1,3 @@
-import clone from 'lodash/lang/clone';
-import filter from 'lodash/collection/filter';
-
 const Reducers = {}
 
 // Example: this is an example reducer for a Phoenix socket connection

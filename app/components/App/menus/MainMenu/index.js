@@ -4,7 +4,6 @@ import Actions from 'redux/actions.js';
 import style from './style';
 import CSSModules from 'react-css-modules';
 import { Link } from 'react-router';
-
 import LoggedInLinks from './screens/LoggedInLinks';
 import LoggedOutLinks from './screens/LoggedOutLinks';
 
