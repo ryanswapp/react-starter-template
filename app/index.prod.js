@@ -27,8 +27,6 @@ const store = finalCreateStore(reducer);
 
 syncReduxAndRouter(history, store)
 
-// store.dispatch(Actions.initiateSocket());
-
 render(
   <Provider store={store}>
     <div>

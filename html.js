@@ -23,7 +23,7 @@ module.exports = {
 
   prod: function (data) {
     var config = {
-      title: '<%= appName %>'
+      title: 'React Starter Template'
     }
 
     return {

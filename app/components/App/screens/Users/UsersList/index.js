@@ -7,19 +7,6 @@ const UsersList = React.createClass({
 
     const { dispatch } = this.props;
 
-    // if (!localStorage.phoenix_auth_token) {
-    //   dispatch(pushState(null, "/"));
-    // }
-    
-    // dispatch(Actions.joinNewUsersChannel(socket));
-
-    // if (channels.newUsers) {
-    //   channels.newUsers.on("new:user", payload => {
-    //     console.log("There is a new user!");
-    //     dispatch(Actions.addUser(payload.user));
-    //   });
-    // }
-
     dispatch(Actions.fetchUsers());
   },
   render () {
@@ -30,7 +17,7 @@ const UsersList = React.createClass({
         <div className='users-list'>
           <ul className='list-group'>
             {users.map((user, i) => {
-               return <li key={i} className='list-group-item'>{user.email}</li> 
+               return <li key={i} className='list-group-item'>{user.name}</li> 
             })}
           </ul>
         </div>
@@ -41,10 +28,7 @@ const UsersList = React.createClass({
 
 function mapStateToProps(state) {
 	return { 
-    // socket: state.socket,
-    // channels: state.channels,
     users: state.users,
-    // currentUser: state.currentUser
   }
 }
 

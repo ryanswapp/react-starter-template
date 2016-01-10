@@ -4,11 +4,6 @@ import axios from 'axios';
 import Actions from 'redux/actions.js';
 
 const UserLogin = React.createClass({
-  componentDidMount() {
-    if (this.props.currentUser) {
-      this.props.dispatch(pushState(null, "/"));
-    }
-  },
   handleSubmit(e) {
     e.preventDefault();
 
@@ -22,24 +17,6 @@ const UserLogin = React.createClass({
       password: password
     }
 
-    // axios.post('http://localhost:4000/api/v1/login', {session: session})
-    //   .then(function(response) {
-    //     if (response.status === 201) {
-    //       // Save new JWT to localStorage
-    //       localStorage.phoenix_auth_token = response.data.jwt;
-    //       self.props.dispatch(Actions.getCurrentUser());
-
-    //       // Route to home page
-    //       self.props.dispatch(pushState(null, '/'));
-    //     } else {
-    //       console.log("Failed login...");
-    //       console.log(response);
-    //     }
-    //   })
-    //   .catch(function(response) {
-    //     console.log("Failed login...");
-    //     console.log(response);
-    //   });
     alert(`Email: ${email}. \nPassword: ${password}`);
   },
   render () {
@@ -62,12 +39,6 @@ const UserLogin = React.createClass({
   }
 });
 
-// function mapStateToProps(state) {
-//   return { 
-//     currentUser: state.currentUser
-//   }
-// }
 
-// export default connect(mapStateToProps)(UserLogin);
 
 export default UserLogin

@@ -20,18 +20,6 @@ const UsersNew = React.createClass({
       password: password
     }
 
-    // axios.post('http://localhost:4000/api/v1/register', {user: user})
-    //   .then(function(response) {
-    //     console.log("Successfully added user!");
-
-    //     // Clear input values
-    //     document.querySelector(".username").value = "";
-    //     document.querySelector(".email").value = "";
-    //     document.querySelector(".password").value = "";
-    //   })
-    //   .catch(function(response) {
-    //     console.log(response);
-    //   });
     alert(`Username: ${username}. \nEmail: ${email}. \nPassword: ${password}.`);
     
   },
@@ -59,7 +47,4 @@ const UsersNew = React.createClass({
   }
 });
 
-// export default connect(state => ({
-//   currentUser: state.currentUser
-// }))(UsersNew);
 export default connect()(UsersNew);
