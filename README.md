@@ -1,6 +1,6 @@
 # React Starter Template
 
-I've tried to make this starter kit as lightweight as possible while still providing all of the tools you'll need to build a production ready app. If you're new to React this may seem overwhelming. Don't worry, that is a natural reaction to the firehose of information that will hit you when you poke around the repo. I'm planning to do a video on how it all works in order to make onboarding less cumbersome. 
+I've tried to make this starter kit as lightweight as possible while still providing all of the tools you'll need to build a production ready app. If you're new to React this may seem overwhelming. Don't worry, that is a natural reaction to the fire hose spray of information that will hit you when you poke around the repo. I'm planning to do a video on how it all works in order to make onboarding less cumbersome. 
 
 ## Features
 
@@ -39,7 +39,7 @@ Navigate to http://localhost:3000/ and you should see your new app
 
 ### NPM Deploy
 
-While in the root directory on the project run the following command to build your React app into a production ready bundle:
+While in the root directory of the project run the following command to build your React app into a production ready bundle:
 
 ```
 npm run deploy
