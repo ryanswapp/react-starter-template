@@ -1,7 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var cssnext = require('cssnext');
-var cssimport = require('postcss-import');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
 var HtmlPlugin = require('./lib/html-plugin');
@@ -67,7 +65,16 @@ var loaders = [
   },
   {
     test: /\.css$/,
-    loader: isProd ? ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss') : 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
+    loader: isProd ? ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]') : 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+  },
+  {
+    test: /\.scss$/,
+    loader: isProd ? ExtractTextPlugin.extract('style', '!css!sass') : 'style!css!sass'
+  },
+  {
+    test: /\.(png|ico)$/,
+    exclude: /node_modules/,
+    loader: 'file-loader?name=img/[path][name].[ext]&context=./app/images'
   }
 ];
 
@@ -87,17 +94,6 @@ module.exports = {
   devtool: devtool,
   entry: entry,
   stylePath: path.resolve(__dirname, 'app', 'style'),
-  postcss: function () {
-    return [
-      cssimport({
-        path: './app/style/index.css',
-        onImport: function (files) {
-          files.forEach(this.addDependency)
-        }.bind(this)
-      }),
-      cssnext()
-    ]
-  },
   output: {
     path: path.join(__dirname, '/__build__'),
     filename: '[name].js',
@@ -109,12 +105,16 @@ module.exports = {
   module: {
     loaders: loaders
   },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, './app/style'), path.resolve(__dirname, './node_modules')]
+  },
   resolve: {
     root: path.resolve(__dirname),
     extensions: [
       '',
       '.js',
-      '.css'
+      '.css',
+      '.scss'
     ],
     modulesDirectories: [
       'app',

@@ -1,5 +1,3 @@
-@import '../../../../style/settings.colors';
-
 .main-menu {
 	width: 300px;
 }
@@ -15,5 +13,5 @@
 }
 
 .item a:hover {
-	color: var(--clr-blue);
+	color: blue;
 }

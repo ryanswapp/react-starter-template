@@ -6,10 +6,10 @@ const Home = React.createClass({
 	getInitialState() {
 		return {
 			features: [
-				"React, Redux",
-				"React Router",
-				"Redux Simple Router",
-				"CSS Modules, CSSNext, PostCSS"
+				'React, Redux',
+				'React Router',
+				'Redux Simple Router',
+				'Node Sass, Bootstrap Sass'
 			]
 		}
 	},

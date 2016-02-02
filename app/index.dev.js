@@ -1,4 +1,4 @@
-import 'style/index.css'
+import 'style/index'
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute } from 'react-router'
