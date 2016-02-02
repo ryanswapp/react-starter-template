@@ -11,9 +11,11 @@ import { syncHistory, routeReducer } from 'redux-simple-router'
 import createHistory from 'history/lib/createHashHistory'
 import Actions from 'redux/actions.js'
 import Reducers from 'redux/reducers.js'
+import { reducer as formReducer } from 'redux-form'
 
 const history = createHistory()
 const reducer = combineReducers(Object.assign({}, Reducers, {
+  form: formReducer,
   routing: routeReducer
 }))
 
@@ -29,9 +31,9 @@ let finalCreateStore = compose(
 const store = finalCreateStore(reducer)
 
 render(
-  <Provider store={store}>
+  <Provider store={ store }>
     <div>
-      <Router history={history} routes={routes} />
+      <Router history={ history } routes={ routes } />
     </div>
   </Provider>,
   document.getElementById('app')

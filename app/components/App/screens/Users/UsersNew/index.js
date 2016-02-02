@@ -1,50 +1,38 @@
-import React from 'react';
-// import { Socket } from "vendor/phoenix";
-import axios from 'axios';
-import { connect } from 'react-redux';
+import React from 'react'
+import axios from 'axios'
+import { connect } from 'react-redux'
+import Actions from 'redux/actions.js'
+import SignupForm from './screens/SignupForm'
 
 
 const UsersNew = React.createClass({
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit(data) {
 
-    let self = this;
-
-    let username = e.target.username.value;
-    let email = e.target.email.value;
-    let password = e.target.password.value;
-
-    let user = {
-      username: username,
-      email: email,
-      password: password
-    }
-
-    alert(`Username: ${username}. \nEmail: ${email}. \nPassword: ${password}.`);
+    // this.props.dispatch(Actions.users.registerUser(data))
+    console.log(data)
     
   },
   render () {
     return (
-      <div className='container'>
-        <h1>New User</h1>
-        <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input type="text" name="username" className="form-control username" />
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-8 col-sm-offset-2">
+            <h1 className="page-header text-center">Join Us</h1>
+            <div className="light-well">
+              <div className="panel-body">
+                <div className="row">
+                  <div className="col-sm-8 col-sm-offset-2">
+                    <h3 className="panel-title">Create Your Account</h3>
+                    <SignupForm onSubmit={ this.handleSubmit } />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input type="text" name="email" className="form-control email" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" className="form-control password" />
-        </div>
-        <input type="submit" className="btn btn-default" />                   
-        </form>
       </div>
     )
   }
-});
+})
 
-export default connect()(UsersNew);
+export default connect()(UsersNew)

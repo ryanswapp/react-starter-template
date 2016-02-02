@@ -1,43 +1,35 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import axios from 'axios';
-import Actions from 'redux/actions.js';
+import React from 'react'
+import { connect } from 'react-redux'
+import axios from 'axios'
+import Actions from 'redux/actions.js'
+import LoginForm from './screens/LoginForm'
 
 const UserLogin = React.createClass({
-  handleSubmit(e) {
-    e.preventDefault();
-
-    let self = this;
-
-    let email = e.target.email.value;
-    let password = e.target.password.value;
-
-    let session = {
-      email: email,
-      password: password
-    }
-
-    alert(`Email: ${email}. \nPassword: ${password}`);
+  handleSubmit(data) {
+    console.log(data)
   },
   render () {
     return (
       <div className="container">
-        <h1>Login</h1>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="text" name="email" className="form-control email" />
+        <div className="row">
+          <div className="col-sm-8 col-sm-offset-2">
+            <h1 className="page-header text-center">Login</h1>
+            <div className="light-well">
+              <div className="panel-body">
+                <div className="row">
+                  <div className="col-sm-8 col-sm-offset-2">
+                    <h3 className="panel-title"></h3>
+                    <LoginForm onSubmit={ this.handleSubmit } />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" className="form-control password" />
-          </div>
-          <input type="submit" className="btn btn-default" />                   
-        </form>
+        </div>
       </div>
     )
   }
-});
+})
 
 
 

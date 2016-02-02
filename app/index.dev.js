@@ -11,9 +11,11 @@ import createHistory from 'history/lib/createBrowserHistory'
 import Actions from 'redux/actions.js'
 import Reducers from 'redux/reducers.js'
 import DevTools from './containers/DevTools.js'
+import { reducer as formReducer } from 'redux-form'
 
 const history = createHistory()
 const reducer = combineReducers(Object.assign({}, Reducers, {
+  form: formReducer,
   routing: routeReducer
 }))
 
