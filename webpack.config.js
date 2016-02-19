@@ -75,7 +75,11 @@ var loaders = [
     test: /\.(png|ico)$/,
     exclude: /node_modules/,
     loader: 'file-loader?name=img/[path][name].[ext]&context=./app/images'
-  }
+  },
+  {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
+  {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
+  {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
+  {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'}
 ];
 
 if (!isProd) {
