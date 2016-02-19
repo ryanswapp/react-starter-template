@@ -34,9 +34,9 @@ const store = finalCreateStore(reducer)
 reduxRouterMiddleware.listenForReplays(store)
 
 render(
-	<Provider store={store}>
+	<Provider store={ store }>
 		<div>
-	  	<Router history={history}>
+	  	<Router history={ history }>
 	  		{ routes }
 	  	</Router>
 	  	<DevTools />

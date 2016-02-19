@@ -1,27 +1,27 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Actions from 'redux/actions.js';
-import { Link } from 'react-router';
+import React from 'react'
+import { connect } from 'react-redux'
+import Actions from 'redux/actions.js'
+import { Link } from 'react-router'
 
 const LoggedOutLinks = React.createClass({
 	render() {
 		return (
 			<ul className="nav navbar-nav navbar-right">
 	      <li>
-					<Link to='/'>Home</Link>
+					<Link to="/">Home</Link>
 				</li>
 				<li>
-					<Link to='/users'>Users List</Link>
+					<Link to="/users">Users List</Link>
 				</li>
 				<li>
-					<Link to='/signup'>Signup</Link>
+					<Link to="/signup">Signup</Link>
 				</li>
 				<li>
-					<Link to='/login'>Login</Link>
+					<Link to="/login">Login</Link>
 				</li>
 	    </ul>
     )
 	}
-});
+})
 
-export default LoggedOutLinks;
+export default LoggedOutLinks

@@ -1,20 +1,20 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Actions from 'redux/actions.js';
-import style from './style';
-import CSSModules from 'react-css-modules';
-import { Link } from 'react-router';
-import LoggedInLinks from './screens/LoggedInLinks';
-import LoggedOutLinks from './screens/LoggedOutLinks';
+import React from 'react'
+import { connect } from 'react-redux'
+import Actions from 'redux/actions.js'
+import style from './style'
+import CSSModules from 'react-css-modules'
+import { Link } from 'react-router'
+import LoggedInLinks from './screens/LoggedInLinks'
+import LoggedOutLinks from './screens/LoggedOutLinks'
 
 const MainMenu = React.createClass({
 	componentDidMount() {
-		const { currentUser, dispatch } = this.props;
+		const { currentUser, dispatch } = this.props
 
 		if (!currentUser) {
 			// dispatch(Actions.getCurrentUser());
 			// 
-			console.log('Example of fetching the current user with an action');
+			console.log('Example of fetching the current user with an action')
 		}
 	},
 	render() {
@@ -42,7 +42,7 @@ const MainMenu = React.createClass({
       </nav>
 		)
 	}
-});
+})
 
 // function mapStateToProps(state) {
 //   return { 

@@ -1,6 +1,6 @@
-import React from 'react';
-import CSSModules from 'react-css-modules';
-import style from './style';
+import React from 'react'
+import CSSModules from 'react-css-modules'
+import style from './style'
 
 const Home = React.createClass({
 	getInitialState() {
@@ -14,18 +14,18 @@ const Home = React.createClass({
 		}
 	},
 	render() {
-		const { features } = this.state;
+		const { features } = this.state
 		return (
-			<div className='container'>
-				<h1 styleName='h1'>React Starter Template</h1>
+			<div className="container">
+				<h1 styleName="h1">React Starter Template</h1>
 				<ul className="list-group">
 						{ features.map((feature, i) => 
-							<li key={i} className="list-group-item">{ i + 1}) { feature }</li>
-						)}
+							<li key={ i } className="list-group-item">{ i + 1 }) { feature }</li>
+							) }
 				</ul>
 			</div>
 		)
 	}
-});
+})
 
-export default CSSModules(Home, style);
+export default CSSModules(Home, style)
