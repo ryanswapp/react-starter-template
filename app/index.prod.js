@@ -2,24 +2,22 @@ import 'style/index'
 require.context('./images', true, /^\.\//)
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, IndexRoute, match } from 'react-router'
+import { Router, Route, IndexRoute, match, browserHistory } from 'react-router'
 import routes from 'config/routes.js'
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
-import { syncHistory, routeReducer } from 'redux-simple-router'
-import createHistory from 'history/lib/createBrowserHistory'
+import { syncHistory, routeReducer } from 'react-router-redux'
 import Actions from 'redux/actions.js'
 import Reducers from 'redux/reducers.js'
 import { reducer as formReducer } from 'redux-form'
 
-const history = createHistory()
 const reducer = combineReducers(Object.assign({}, Reducers, {
   form: formReducer,
   routing: routeReducer
 }))
 
-const reduxRouterMiddleware = syncHistory(history)
+const reduxRouterMiddleware = syncHistory(browserHistory)
 
 let finalCreateStore = compose(
   applyMiddleware(
@@ -33,7 +31,7 @@ const store = finalCreateStore(reducer)
 render(
   <Provider store={ store }>
     <div>
-      <Router history={ history } routes={ routes } />
+      <Router history={ browserHistory } routes={ routes } />
     </div>
   </Provider>,
   document.getElementById('app')

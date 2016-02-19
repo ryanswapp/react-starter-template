@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { routeActions } from 'redux-simple-router'
+import { routeActions } from 'react-router-redux'
 import config from 'config/global'
 import Helpers from './helpers'
 import notificationActions from './notification_actions'
