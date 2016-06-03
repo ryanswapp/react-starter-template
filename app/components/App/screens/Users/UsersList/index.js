@@ -1,13 +1,14 @@
-import React from 'react'
-import Actions from 'redux/actions.js'
-import { connect } from 'react-redux'
+import React from 'react';
+import Actions from 'redux/actions.js';
+import { connect } from 'react-redux';
 
 const UsersList = React.createClass({
   componentDidMount () {
 
-    const { dispatch } = this.props
+    const { dispatch } = this.props;
 
-    dispatch(Actions.users.fetchUsers())
+    // dispatch(Actions.users.fetchUsers())
+    dispatch({type: 'FETCH_USERS_REQUESTED'});
   },
   render () {
     const { users } = this.props
@@ -17,19 +18,19 @@ const UsersList = React.createClass({
         <div className="users-list">
           <ul className="list-group">
             { users.map((user, i) => {
-               return <li key={ i } className="list-group-item">{ user.name }</li> 
+              return <li key={ i } className="list-group-item">{ user.name }</li>;
             }) }
           </ul>
         </div>
       </div>
-    )
+    );
   }
-})
+});
 
 function mapStateToProps(state) {
 	return { 
-    users: state.users,
-  }
+    users: state.users
+  };
 }
 
-export default connect(mapStateToProps)(UsersList)
+export default connect(mapStateToProps)(UsersList);
