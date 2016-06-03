@@ -22,8 +22,8 @@ const Home = React.createClass({
 						{ features.map((feature, i) => 
 							<li key={ i } className="list-group-item">{ i + 1 }) { feature }</li>
 							) }
-				</ul>
-			</div>
+        </ul>
+      </div>
 		)
 	}
 })
