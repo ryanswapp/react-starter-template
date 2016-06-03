@@ -1,32 +1,39 @@
-import 'style/index'
-require.context('./images', true, /^\.\//)
-import React from 'react'
-import { render } from 'react-dom'
-import { Router, Route, IndexRoute, match, browserHistory } from 'react-router'
-import routes from 'config/routes.js'
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
-import { Provider } from 'react-redux'
-import thunkMiddleware from 'redux-thunk'
-import { syncHistory, routeReducer } from 'react-router-redux'
-import Actions from 'redux/actions.js'
-import Reducers from 'redux/reducers.js'
-import { reducer as formReducer } from 'redux-form'
+import 'style/index';
+require.context('./images', true, /^\.\//);
+import React from 'react';
+import { render } from 'react-dom';
+import { Router, Route, IndexRoute, match, browserHistory } from 'react-router';
+import routes from 'config/routes.js';
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
+import { syncHistory, routeReducer } from 'react-router-redux';
+import Actions from 'redux/actions.js';
+import Reducers from 'redux/reducers.js';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from 'redux/sagas.js';
+import { reducer as formReducer } from 'redux-form';
 
 const reducer = combineReducers(Object.assign({}, Reducers, {
   form: formReducer,
   routing: routeReducer
-}))
+}));
 
-const reduxRouterMiddleware = syncHistory(browserHistory)
+const reduxRouterMiddleware = syncHistory(browserHistory);
+
+const sagaMiddleware = createSagaMiddleware();
 
 let finalCreateStore = compose(
   applyMiddleware(
     thunkMiddleware,
-    reduxRouterMiddleware
+    reduxRouterMiddleware,
+    sagaMiddleware
   )
-)(createStore)
+)(createStore);
 
-const store = finalCreateStore(reducer)
+const store = finalCreateStore(reducer);
+
+sagaMiddleware.run(rootSaga);
 
 render(
   <Provider store={ store }>
@@ -35,4 +42,4 @@ render(
     </div>
   </Provider>,
   document.getElementById('app')
-)
+);
