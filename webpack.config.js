@@ -49,10 +49,10 @@ plugins.push(new HtmlPlugin({html: html}));
 var entry = [];
 if (isProd) {
   entry = {};
-  entry.app = ['babel-polyfill', './app/index.prod'];
+  entry.app = ['babel-polyfill', './src/index.prod'];
   entry.vendors = ['react', 'react-router'];
 } else {
-  entry.push('babel-polyfill', './app/index.dev', 'webpack-dev-server/client?http://localhost:3000','webpack/hot/only-dev-server');
+  entry.push('babel-polyfill', './src/index.dev', 'webpack-dev-server/client?http://localhost:3000','webpack/hot/only-dev-server');
 }
 
 // SETUP LOADERS
@@ -62,7 +62,7 @@ var loaders = [
     test: /\.js$/,
     loaders: ['babel'],
     exclude: /node_modules/,
-    include: path.join(__dirname, 'app')
+    include: path.join(__dirname, 'src')
   },
   {
     test: /\.css$/,
@@ -75,7 +75,7 @@ var loaders = [
   {
     test: /\.(png|ico)$/,
     exclude: /node_modules/,
-    loader: 'file-loader?name=img/[path][name].[ext]&context=./app/images'
+    loader: 'file-loader?name=img/[path][name].[ext]&context=./src/images'
   },
   {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
   {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
@@ -98,7 +98,7 @@ if (isProd) {
 module.exports = {
   devtool: devtool,
   entry: entry,
-  stylePath: path.resolve(__dirname, 'app', 'style'),
+  stylePath: path.resolve(__dirname, './src/App/style'),
   output: {
     path: path.join(__dirname, '/__build__'),
     filename: '[name].js',
@@ -111,7 +111,7 @@ module.exports = {
     loaders: loaders
   },
   sassLoader: {
-    includePaths: [path.resolve(__dirname, './app/style'), path.resolve(__dirname, './node_modules')]
+    includePaths: [path.resolve(__dirname, './src/style'), path.resolve(__dirname, './node_modules')]
   },
   resolve: {
     root: path.resolve(__dirname),
@@ -122,7 +122,7 @@ module.exports = {
       '.scss'
     ],
     modulesDirectories: [
-      'app',
+      'src',
       'node_modules'
     ]
   }
